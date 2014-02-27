@@ -1,0 +1,45 @@
+// The working commands for wiFly
+
+$$$                     // get into CMD mode
+
+factory RESET           //reset to defaults
+reboot
+
+/*
+    Connect to WiFi network
+*/
+
+scan                    // check if target network is seen.  takes a moment.
+
+set wlan auth 0         // no auth
+set wlan join 1         // auto join the ssid in memory
+set wlan ssid NETGEAR
+
+set ip dhcp 0                   // turn off dhcp
+set ip address 192.168.1.201    // set possible IP addresses in subnet
+
+save
+reboot
+
+/*
+    Try pinging 192.168.1.254 OR 192.168.1.253
+    from another computer connected to same WiFi network.
+    e.g. open 192.168.1.201 2000
+    
+    Disconnect USB and run CMDs from telnet.
+*/
+
+/*
+    Open a TCP connection with host to send data
+    whenever UART is received.  Connects on boot.
+*/
+
+set ip host X.X.X.X                 // address and port of webapp
+set ip remote_port num
+
+set sys autoconn 1                  // connect on boot
+set uart mode 2                     // connect on uart data
+
+set com remote ?                   // uart data prefix
+
+
