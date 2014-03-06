@@ -3,6 +3,7 @@
 // WiFly server
 
 var server = require('net');
+var settings = require('./settings');
 
 server.createServer(function (socket) {
     
@@ -13,10 +14,10 @@ server.createServer(function (socket) {
     });
     socket.end();
     
-}).listen(8080);
+}).listen(settings.tcp_port);
 
 // Web Server
-var port = 1337;
+var port = settings.web_port;
 var express = require("express");
 
 var app = express();
@@ -28,4 +29,6 @@ app.get("/", function(request, response){ //root dir
 });
 
 app.listen(port);
+
+console.log('Listening on '+port);
  
