@@ -10,9 +10,9 @@ server.createServer(function (socket) {
     console.log("connected");
     console.log('socket connected: '+new Date(), socket.address());
     socket.on('data', function (data) {
-        console.log('got data: ',data.toString());
+        console.log('got data: ',data,data.toString());
     });
-    socket.end();
+
     
 }).listen(settings.tcp_port);
 
@@ -45,6 +45,7 @@ app.get("/*", function(request, response){ //root dir
     // grab the /url and remove the '/' character.
     var page = request.url.replace('/','');
     console.log('requested '+page+' ');
+    
     response.render("index", {title:'my dynamic page'});
 });
 
